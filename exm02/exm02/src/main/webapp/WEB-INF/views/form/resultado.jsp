@@ -12,7 +12,7 @@
 
     <body>
         <h1>EXM02: Resultado</h1>
-        <p>Olá ${name}! Você tem ${age} anos!</p>
+        <p>Olá ${user.name}! Você tem ${user.age} anos!</p>
     </body>
 
     </html>

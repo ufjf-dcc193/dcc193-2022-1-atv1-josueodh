@@ -17,11 +17,10 @@ public class HomeController {
     }
 
     @RequestMapping({ "resultado", "resultado.html" })
-    public ModelAndView resultado(String name, Integer age) {
+    public ModelAndView resultado(User user) {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("form/resultado");
-        mv.addObject("age", age);
-        mv.addObject("name", name);
+        mv.addObject("user", user);
         return mv;
     }
 }
