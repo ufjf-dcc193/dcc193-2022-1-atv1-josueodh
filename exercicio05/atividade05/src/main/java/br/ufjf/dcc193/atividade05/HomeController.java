@@ -3,6 +3,7 @@ package br.ufjf.dcc193.atividade05;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 import java.util.List;
@@ -40,4 +41,11 @@ public class HomeController {
         mv.addObject("jogadores", pl);
         return mv;
     }
+
+    @RequestMapping({ "delete", "delete.html" })
+    public RedirectView excluir(@RequestParam Long id) {
+        ps.delete(id);
+        return new RedirectView("index.html");
+    }
+
 }

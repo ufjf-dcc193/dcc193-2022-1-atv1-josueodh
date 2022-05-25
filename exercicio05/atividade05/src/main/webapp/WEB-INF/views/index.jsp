@@ -17,6 +17,9 @@
             <ul>
                 <c:forEach var="jogador" items="${jogadores}">
                     <li>[${jogador.id}] - ${jogador.nome} (${jogador.time})
+                        <a href="show?id=${jogador.id}">Visualizar</a>
+                        <a href="edit?id=${jogador.id}">Editar</a>
+                        <a href="delete?id=${jogador.id}">Deletar</a>
                     </li>
                 </c:forEach>
             </ul>

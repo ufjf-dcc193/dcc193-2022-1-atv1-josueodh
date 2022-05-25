@@ -18,4 +18,8 @@ public class JogadorService {
     List<Jogador> findAll() {
         return rep.findAll();
     }
+
+    void delete(Long id) {
+        rep.deleteById(id);
+    }
 }
