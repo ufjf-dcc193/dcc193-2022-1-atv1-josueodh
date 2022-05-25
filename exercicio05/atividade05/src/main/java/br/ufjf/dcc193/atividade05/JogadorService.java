@@ -52,4 +52,19 @@ public class JogadorService {
         return j;
     }
 
+    Jogador decrement(Long id, String type) {
+        Jogador j = rep.findById(id).get();
+        if (type.equals("ataques") && j.getAtaques() > 0) {
+            j.setAtaques(j.getAtaques() - 1);
+        } else if (type.equals("bloqueios") && j.getBloqueios() > 0) {
+            j.setBloqueios(j.getBloqueios() - 1);
+        } else if (type.equals("pontos") && j.getPontos() > 0) {
+            j.setPontos(j.getPontos() - 1);
+        } else if (type.equals("saques") && j.getSaques() > 0) {
+            j.setSaques(j.getSaques() - 1);
+        }
+        rep.save(j);
+        return j;
+    }
+
 }

@@ -81,4 +81,13 @@ public class HomeController {
         return new RedirectView("show?id=" + id);
     }
 
+    @RequestMapping({ "decrement", "decrement.html" })
+    public RedirectView drecement(@RequestParam Long id, @RequestParam String type) {
+
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("show");
+        ps.decrement(id, type);
+        return new RedirectView("show?id=" + id);
+    }
+
 }
