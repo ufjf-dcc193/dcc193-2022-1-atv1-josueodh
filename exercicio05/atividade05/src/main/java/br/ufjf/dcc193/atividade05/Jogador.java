@@ -1,6 +1,9 @@
 package br.ufjf.dcc193.atividade05;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Jogador {
@@ -10,6 +13,10 @@ public class Jogador {
     private Integer bloqueios;
     private Integer saques;
     private Integer pontos;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
 
     public Jogador(String nome, String time) {
         this.nome = nome;
@@ -66,6 +73,14 @@ public class Jogador {
 
     public void setPontos(Integer pontos) {
         this.pontos = pontos;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
 }
