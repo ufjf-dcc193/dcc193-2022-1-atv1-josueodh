@@ -37,4 +37,19 @@ public class JogadorService {
         return j;
     }
 
+    Jogador increment(Long id, String type) {
+        Jogador j = rep.findById(id).get();
+        if (type.equals("ataques")) {
+            j.setAtaques(j.getAtaques() + 1);
+        } else if (type.equals("bloqueios")) {
+            j.setBloqueios(j.getBloqueios() + 1);
+        } else if (type.equals("pontos")) {
+            j.setPontos(j.getPontos() + 1);
+        } else if (type.equals("saques")) {
+            j.setSaques(j.getSaques() + 1);
+        }
+        rep.save(j);
+        return j;
+    }
+
 }

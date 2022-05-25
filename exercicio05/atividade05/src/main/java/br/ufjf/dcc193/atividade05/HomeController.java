@@ -27,7 +27,6 @@ public class HomeController {
     @RequestMapping({ "resultado", "resultado.html" })
     public RedirectView resultado(Jogador jogador) {
         Jogador j = new Jogador(jogador.getNome(), jogador.getTime());
-        System.out.println(j.toString());
         ps.create(j);
         return new RedirectView("index.html");
     }
@@ -37,7 +36,6 @@ public class HomeController {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("index");
         List<Jogador> pl = ps.findAll();
-        System.out.println(pl);
         mv.addObject("jogadores", pl);
         return mv;
     }
@@ -72,7 +70,15 @@ public class HomeController {
         mv.setViewName("update");
         ps.update(id, jogador);
         return new RedirectView("index.html");
+    }
 
+    @RequestMapping({ "increment", "increment.html" })
+    public RedirectView increment(@RequestParam Long id, @RequestParam String type) {
+
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("show");
+        ps.increment(id, type);
+        return new RedirectView("show?id=" + id);
     }
 
 }

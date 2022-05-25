@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.data.domain.ExampleMatcher.NullHandler;
+
 @Entity
 public class Jogador {
     private String nome;
@@ -20,11 +22,7 @@ public class Jogador {
 
     public Jogador() {
         this(null, null);
-    }
 
-    @Override
-    public String toString() {
-        return "Pessoa [id=" + id + ", time=" + this.time + ", nome=" + this.nome + "]";
     }
 
     public Jogador(String nome, String time) {
@@ -38,6 +36,12 @@ public class Jogador {
 
     public String getNome() {
         return nome;
+    }
+
+    @Override
+    public String toString() {
+        return "Jogador [ataques=" + ataques + ", bloqueios=" + bloqueios + ", id=" + id + ", nome=" + nome
+                + ", pontos=" + pontos + ", saques=" + saques + ", time=" + time + "]";
     }
 
     public void setNome(String nome) {
