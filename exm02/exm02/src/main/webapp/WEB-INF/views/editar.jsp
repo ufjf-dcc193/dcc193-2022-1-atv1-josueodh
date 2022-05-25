@@ -12,10 +12,11 @@
 
     <body>
         <h1>EXM02: Formulário</h1>
-        <form action="resultado.html" method="post">
+        <form action="atualizar.html?id=${pessoa.id}" method="post">
             <div class="flex flex-column">
-                <label>Nome: <input type="text" name="nome" /></label>
-                <label>Idade: <input type="number" step="1" min="0" max="100" name="idade" /></label>
+                <label>Nome: <input type="text" name="nome" value="${pessoa.nome}" /></label>
+                <label>Idade: <input type="number" step="1" min="0" max="100" name="idade"
+                        value="${pessoa.idade}" /></label>
                 <button type="submit">Enviar</button>
             </div>
         </form>
