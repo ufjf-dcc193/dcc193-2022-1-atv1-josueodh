@@ -18,6 +18,15 @@ public class Jogador {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
+    public Jogador() {
+        this(null, null);
+    }
+
+    @Override
+    public String toString() {
+        return "Pessoa [id=" + id + ", time=" + this.time + ", nome=" + this.nome + "]";
+    }
+
     public Jogador(String nome, String time) {
         this.nome = nome;
         this.time = time;

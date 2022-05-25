@@ -12,7 +12,7 @@
 
     <body>
         <h1>Cadastro Jogador</h1>
-        <form action="/" method="post">
+        <form action="/resultado" method="post">
             <div class="flex flex-column">
                 <label>Nome: <input type="text" name="nome" /></label>
                 <label>Time: <input type="text" name="time" /></label>
