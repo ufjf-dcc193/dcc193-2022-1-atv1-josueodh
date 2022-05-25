@@ -48,4 +48,13 @@ public class HomeController {
         return new RedirectView("index.html");
     }
 
+    @RequestMapping({ "show", "show.html" })
+    public ModelAndView visualizar(@RequestParam Long id) {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("show");
+        Jogador j = ps.show(id);
+        mv.addObject("jogador", j);
+        return mv;
+    }
+
 }

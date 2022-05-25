@@ -22,4 +22,10 @@ public class JogadorService {
     void delete(Long id) {
         rep.deleteById(id);
     }
+
+    Jogador show(Long id) {
+        Jogador j = rep.getById(id);
+        return j;
+    }
+
 }
