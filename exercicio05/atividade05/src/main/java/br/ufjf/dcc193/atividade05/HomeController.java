@@ -57,4 +57,22 @@ public class HomeController {
         return mv;
     }
 
+    @RequestMapping({ "edit", "edit.html" })
+    public ModelAndView editar(@RequestParam Long id) {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("edit");
+        Jogador p = ps.show(id);
+        mv.addObject("jogador", p);
+        return mv;
+    }
+
+    @RequestMapping({ "update", "update.html" })
+    public RedirectView update(Jogador jogador, @RequestParam Long id) {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("update");
+        ps.update(id, jogador);
+        return new RedirectView("index.html");
+
+    }
+
 }

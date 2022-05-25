@@ -24,7 +24,16 @@ public class JogadorService {
     }
 
     Jogador show(Long id) {
-        Jogador j = rep.getById(id);
+        Jogador j = rep.findById(id).get();
+
+        return j;
+    }
+
+    Jogador update(Long id, Jogador jogador) {
+        Jogador j = rep.findById(id).get();
+        j.setNome(jogador.getNome());
+        j.setTime(jogador.getTime());
+        rep.save(j);
         return j;
     }
 
